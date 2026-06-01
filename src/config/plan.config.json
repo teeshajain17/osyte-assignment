@@ -1,0 +1,27 @@
+{
+  "institutional": {
+    "features": [
+      "rebalancing",
+      "private_assets",
+      "liquidity_analytics",
+      "what_if_modeling"
+    ],
+    "maxPortfolios": 100,
+    "rateLimitPerMinute": 500
+  },
+
+  "professional": {
+    "features": [
+      "rebalancing",
+      "private_assets"
+    ],
+    "maxPortfolios": 20,
+    "rateLimitPerMinute": 100
+  },
+
+  "basic": {
+    "features": [],
+    "maxPortfolios": 3,
+    "rateLimitPerMinute": 30
+  }
+}

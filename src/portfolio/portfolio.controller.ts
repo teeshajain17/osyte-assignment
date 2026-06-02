@@ -1,4 +1,4 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import { Controller, Post, Body, Get } from '@nestjs/common';
 
 import { CreatePortfolioSchema } from './portfolio.schema';
 
@@ -14,5 +14,10 @@ export class PortfolioController {
     body: any,
   ) {
     return this.portfolioService.create(body);
+  }
+
+  @Get()
+  findAll() {
+    return this.portfolioService.findAllNPlusOne();
   }
 }

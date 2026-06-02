@@ -18,6 +18,6 @@ export class PortfolioController {
 
   @Get()
   findAll() {
-    return this.portfolioService.findAllNPlusOne();
+    return this.portfolioService.findAllOptimized();
   }
 }

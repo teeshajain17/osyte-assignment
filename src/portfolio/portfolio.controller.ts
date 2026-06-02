@@ -1,20 +1,18 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { Controller, Post, Body } from '@nestjs/common';
 
 import { CreatePortfolioSchema } from './portfolio.schema';
 
 import { ZodValidationPipe } from '../common/zod-validation.pipe';
+import { PortfolioService } from './portfolio.service';
 
 @Controller('portfolios')
 export class PortfolioController {
+  constructor(private readonly portfolioService: PortfolioService) {}
   @Post()
-  create(
+  async create(
     @Body(new ZodValidationPipe(CreatePortfolioSchema))
     body: any,
   ) {
-    return {
-      message: 'Portfolio created',
-      data: body,
-    };
+    return this.portfolioService.create(body);
   }
 }

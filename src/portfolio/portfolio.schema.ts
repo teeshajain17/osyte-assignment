@@ -1,5 +1,7 @@
 import { z } from 'zod';
+import { createInsertSchema, createSelectSchema } from 'drizzle-zod';
 
+import { portfolios } from '../database/schema';
 export const CreatePortfolioSchema = z.object({
   name: z.string(),
 
@@ -17,3 +19,6 @@ export const CreatePortfolioSchema = z.object({
 export const UpdatePortfolioSchema = CreatePortfolioSchema.partial();
 
 export type CreatePortfolioDto = z.infer<typeof CreatePortfolioSchema>;
+export const PortfolioInsertSchema = createInsertSchema(portfolios);
+
+export const PortfolioSelectSchema = createSelectSchema(portfolios);
